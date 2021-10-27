@@ -1,0 +1,129 @@
+demo-application/target/
+demo-application/!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+demo-application/.apt_generated
+demo-application/.classpath
+demo-application/.factorypath
+demo-application/.project
+demo-application/.settings
+demo-application/.springBeans
+
+### IntelliJ IDEA ###
+demo-application/.idea
+demo-application/*.iws
+demo-application/*.iml
+demo-application/*.ipr
+
+### NetBeans ###
+demo-application/nbproject/private/
+demo-application/build/
+demo-application/nbbuild/
+demo-application/dist/
+demo-application/nbdist/
+demo-application/.nb-gradle/
+
+# Compiled class file
+demo-application/*.class
+
+# Log file
+demo-application/*.log
+
+# BlueJ files
+demo-application/*.ctxt
+
+# Mobile Tools for Java (J2ME)
+demo-application/.mtj.tmp/
+
+# Package Files #
+demo-application/*.jar
+demo-application/*.war
+demo-application/*.nar
+demo-application/*.ear
+demo-application/*.zip
+demo-application/*.tar.gz
+demo-application/*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+demo-application/hs_err_pid*
+
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+demo-web/dist
+demo-web/tmp
+demo-web/out-tsc
+# Only exists if Bazel was run
+demo-web/bazel-out
+
+# dependencies
+demo-web/node_modules
+
+# profiling files
+demo-webchrome-profiler-events*.json
+demo-webspeed-measure-plugin*.json
+
+# IDEs and editors
+demo-web/.idea
+demo-web.project
+demo-web.classpath
+demo-web.c9/
+demo-web*.launch
+demo-web.settings/
+demo-web*.sublime-workspace
+
+# IDE - VSCode
+demo-web.vscode/*
+demo-web!.vscode/settings.json
+demo-web!.vscode/tasks.json
+demo-web!.vscode/launch.json
+demo-web!.vscode/extensions.json
+demo-web.history/*
+
+# misc
+demo-web/.sass-cache
+demo-web/connect.lock
+demo-web/coverage
+demo-web/libpeerconnection.log
+demo-webnpm-debug.log
+demo-webyarn-error.log
+demo-webtestem.log
+demo-web/typings
+
+# System Files
+demo-web.DS_Store
+demo-webThumbs.db
+
+
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+demo-web*~
+demo-web*.sw[mnpcod]
+demo-web.tmp
+demo-web*.tmp
+demo-web*.tmp.*
+demo-web*.sublime-project
+demo-web*.sublime-workspace
+demo-web.DS_Store
+demo-webThumbs.db
+demo-webUserInterfaceState.xcuserstate
+demo-web$RECYCLE.BIN/
+
+demo-web*.log
+demo-weblog.txt
+demo-webnpm-debug.log*
+
+demo-web/.idea
+demo-web/.ionic
+demo-web/.sass-cache
+demo-web/.sourcemaps
+demo-web/.versions
+demo-web/.vscode
+demo-web/coverage
+demo-web/dist
+demo-web/node_modules
+demo-web/platforms
+demo-web/plugins
+demo-web/www

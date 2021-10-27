@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: demo-service-deployment
+spec:
+    selector:
+      matchLabels: #which pods to manage
+        app: demo-service-deployment #how deployment finds pod to manage by label app:demo-service-deployment
+    replicas: 2
+    template: #pod spec
+        metadata:
+          labels: #pods are labeled as app: demo-service-deployment
+            app: demo-service-deployment #service will target any pod with demo-service-deployment label
+        spec: #container spec indicates that each Pod runs one container
+          containers:
+            - name: demo-service
+              image: docker.io/tgleb/demo-application:v1
+              imagePullPolicy: IfNotPresent
+              ports:
+                - containerPort: 8080
+              resources:
+                requests:
+                  memory: "128Mi"
+                  cpu: "250m"
+                limits:
+                  memory: "256Mi"
+                  cpu: "1000m"
+              readinessProbe:
+                httpGet:
+                  path: /actuator/health
+                  port: 8080
+                initialDelaySeconds: 3
+                periodSeconds: 2
+                failureThreshold: 3
+              livenessProbe:
+                httpGet:
+                  path: /actuator/health
+                  port: 8080
+                initialDelaySeconds: 5
+                periodSeconds: 5
+                failureThreshold: 3
+              volumeMounts:
+                - name: config-volume
+                  mountPath: /workspace/config
+          volumes:
+            - name: config-volume
+              configMap:
+                name: demo-config-map
+

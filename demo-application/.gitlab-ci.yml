@@ -1,0 +1,63 @@
+image: docker:latest
+services:
+  - docker:dind
+
+variables:
+  DOCKER_DRIVER: overlay
+  SECURE_ANALYZERS_PREFIX: registry.gitlab.com/gitlab-org/security-products/analyzers/bandit  
+
+stages:
+  - build
+  - test
+  - release
+  - run
+
+maven-build:
+  image: maven:3-jdk-8
+  stage: build
+  script: 
+    - echo "Running build:maven-build"
+    - mvn package -B
+  artifacts:
+    paths:
+      - target/*.jar
+  
+
+docker-build:
+  stage: release
+  script:
+  - echo "Running package:docker-build"
+  - docker build -t registry.gitlab.com/java-cloud-migration-group/demo-application .
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+  - docker push registry.gitlab.com/java-cloud-migration-group/demo-application
+
+
+deploy:
+  stage: run
+  image:
+    name: bitnami/kubectl:1.14
+    entrypoint: [""]
+  script:
+    - echo "Running deploy:deploy"
+    - kubectl delete deployment, pod,svc --all --namespace=demo
+    - kubectl create -f Deployment.yaml --namespace=demo
+    - kubectl create -f Service.yaml  --namespace=demo
+    - kubectl get all --namespace=demo   
+  environment:
+    name: dev
+    kubernetes:
+      namespace: demo
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+

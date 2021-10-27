@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: demo-web-deployment
+spec:
+    selector:
+      matchLabels: 
+        app: demo-web-deployment 
+    replicas: 2
+    template: 
+        metadata:
+          labels: 
+            app: demo-web-deployment 
+        spec: 
+          containers:
+          - name: demo-web
+            image: docker.io/tgleb/demo-web-application:v1
+            imagePullPolicy: IfNotPresent
+            ports:
+            - containerPort: 80

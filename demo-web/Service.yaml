@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: demo-web-service
+spec:
+    selector:
+        app: demo-web-deployment
+    # Expose the service on a static port on each node
+    # to access the service from outside the cluster 
+    type: NodePort
+    # NodePort types of service ports
+    # nodePort - a static port assigned on each node
+    # port - port exposed internally in the cluster
+    # targetPort - the container port to send requests to
+    ports:
+    - protocol: TCP
+      port: 4200

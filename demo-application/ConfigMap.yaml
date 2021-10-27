@@ -1,0 +1,13 @@
+apiVersion: v1
+data:
+  application.properties: |-
+    spring.datasource.driver-class-name=org.postgresql.Driver
+    spring.datasource.url=jdbc:postgresql://localhost:5432/demo-database
+    spring.datasource.username=postgres
+    spring.datasource.password=g1eb1970
+    spring.datasource.driver=org.postgresql.Driver
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+kind: ConfigMap
+metadata:
+  name: demo-config-map
+
